@@ -23,7 +23,7 @@ module.exports = function(app, config) {
 	// { unitName: "<unitName>", versionId: "<versionId>" }
 	app.post("/deploy/to-all-agents", app.ensureLoggedIn, function (req, res) {
 
-		agentApiClient.getUnitListForAllAgents(function(results) {
+		agentApiClient.getUnitListForAgentGroup(null, function(results) {
 
 			var filterUnitsByUnitName = function(unit) {
 				return unit.name === req.body.unitName;
